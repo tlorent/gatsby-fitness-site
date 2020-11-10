@@ -1,0 +1,58 @@
+{
+    "root": true,
+    "env": {
+        "node": true
+    },
+    "parser": "babel-eslint",
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:react-hooks/recommended",
+        "plugin:jsx-a11y/recommended",
+        "plugin:import/errors",
+        "prettier/react",
+        "prettier"
+    ],
+    "plugins": ["react", "jsx-a11y", "react-hooks", "import"],
+    "rules": {
+        "strict": 0,
+        "no-console": "warn",
+        "no-alert": "off",
+        "quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "import/order": "off",
+        "default-case": "error",
+        "no-unused-vars": "warn",
+        "react/self-closing-comp": [
+            "warn",
+            {
+                "component": true
+            }
+        ],
+        "react/prop-types": "off",
+        "react/destructuring-assignment": "off",
+        "react/jsx-key": [
+            2,
+            {
+                "checkFragmentShorthand": true
+            }
+        ],
+        "react/jsx-fragments": ["warn", "syntax"],
+        "react/jsx-curly-brace-presence": [
+            1,
+            { "props": "never", "children": "never" }
+        ],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn" // Checks effect dependencies
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    }
+}
