@@ -9,6 +9,7 @@ module.exports = {
     plugins: [
         'gatsby-plugin-styled-components',
         'gatsby-plugin-eslint',
+        'gatsby-plugin-netlify-cms',
         {
             resolve: 'gatsby-plugin-prefetch-google-fonts',
             options: {

@@ -1,0 +1,16 @@
+backend:
+    name: github
+    repo: tlorent/gatsby-fitness-site
+
+media_folder: static/images
+locale: 'nl'
+
+collections:
+    - name: header
+      label: header section
+      create: true
+      folder: content
+      fields:
+          - { name: title, label: title, widget: string, required: true }
+          - { name: subtitle, label: subtitle, widget: string, required: true }
+          - { name: tagline, label: tagline, widget: string }
