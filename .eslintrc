@@ -3,17 +3,26 @@
     "env": {
         "node": true
     },
-    "parser": "babel-eslint",
+    "parser": "@typescript-eslint/parser",
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
         "plugin:import/errors",
+        "plugin:import/typescript",
+        "plugin:@typescript-eslint/recommended",
+        "prettier/@typescript-eslint",
         "prettier/react",
         "prettier"
     ],
-    "plugins": ["react", "jsx-a11y", "react-hooks", "import"],
+    "plugins": [
+        "@typescript-eslint",
+        "react",
+        "jsx-a11y",
+        "react-hooks",
+        "import"
+    ],
     "rules": {
         "strict": 0,
         "no-console": "warn",
@@ -21,13 +30,13 @@
         "quotes": ["error", "single", { "allowTemplateLiterals": true }],
         "import/order": "off",
         "default-case": "error",
-        "no-unused-vars": "warn",
         "react/self-closing-comp": [
             "warn",
             {
                 "component": true
             }
         ],
+        "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
         "react/prop-types": "off",
         "react/destructuring-assignment": "off",
         "react/jsx-key": [

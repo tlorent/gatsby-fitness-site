@@ -15,7 +15,6 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: inherit;
     }
-
 `;
 
 export default GlobalStyle;
