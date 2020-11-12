@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import About from '../components/About';
 import Header from '../components/Header';
 import SEO from '../components/SEO';
 import theme from '../constants/theme';
@@ -13,6 +14,7 @@ const Home: FC = () => {
             <ThemeProvider theme={theme}>
                 <Wrapper>
                     <Header />
+                    <About />
                 </Wrapper>
             </ThemeProvider>
         </>

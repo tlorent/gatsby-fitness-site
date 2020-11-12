@@ -14,26 +14,30 @@ const Heading: FC<Props> = ({ children, as, ...props }) => (
     </Inner>
 );
 
-const h1CSS = css`
+export const h1CSS = css`
     font-size: clamp(32px, 5vw, 56px);
     line-height: 40px;
     text-transform: uppercase;
     font-weight: 600;
     font-style: italic;
+    font-family: 'Roboto Condensed', sans-serif;
 `;
 
-const h5CSS = css`
+export const h5CSS = css`
     font-style: normal;
     font-size: 16px;
     line-height: 25px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 300;
+    font-family: 'Roboto Condensed', sans-serif;
 `;
 
 const getCSS = (as: string) => {
     switch (as) {
         case 'h1':
+            return h1CSS;
+        case 'h2':
             return h1CSS;
         case 'h5':
             return h5CSS;
