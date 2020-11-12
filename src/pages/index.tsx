@@ -1,12 +1,14 @@
 import React, { FC } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Header from '../components/Header';
+import SEO from '../components/SEO';
 import theme from '../constants/theme';
 import GlobalStyle from '../globalStyling';
 
 const Home: FC = () => {
     return (
         <>
+            <SEO />
             <GlobalStyle />
             <ThemeProvider theme={theme}>
                 <Wrapper>

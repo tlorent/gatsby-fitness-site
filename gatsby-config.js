@@ -5,7 +5,10 @@
  */
 
 module.exports = {
-    /* Your site config here */
+    siteMetadata: {
+        title: 'Ben Dobson',
+        description: 'Personal Training & Dietary Advice',
+    },
     plugins: [
         'gatsby-plugin-styled-components',
         'gatsby-plugin-eslint',
@@ -25,5 +28,14 @@ module.exports = {
                 ],
             },
         },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `content`,
+                path: `${__dirname}/content`,
+            },
+        },
+        `gatsby-transformer-remark`,
+        'gatsby-plugin-react-helmet',
     ],
 };

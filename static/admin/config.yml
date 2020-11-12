@@ -6,11 +6,30 @@ media_folder: static/images
 locale: 'nl'
 
 collections:
-    - name: header
-      label: header section
-      create: true
-      folder: content
-      fields:
-          - { name: title, label: title, widget: string, required: true }
-          - { name: subtitle, label: subtitle, widget: string, required: true }
-          - { name: tagline, label: tagline, widget: string }
+    - name: content
+      label: Content
+      files:
+          - label: 'Header Section'
+            name: 'header'
+            file: 'content/header.md'
+            fields:
+                - { name: title, label: title, widget: string, required: true }
+                - {
+                      name: subtitle,
+                      label: subtitle,
+                      widget: string,
+                      required: true,
+                  }
+                - { name: tagline, label: tagline, widget: string }
+          - label: 'About Section'
+            name: 'about'
+            file: 'content/about.md'
+            fields:
+                - { name: title, label: title, widget: string, required: true }
+                - { name: quote, label: quote, widget: string, required: true }
+                - {
+                      name: about text,
+                      label: about text,
+                      widget: text,
+                      required: true,
+                  }

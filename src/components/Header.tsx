@@ -1,22 +1,49 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import Body from './typography/Body';
 import Heading from './typography/Heading';
 
-const Header: FC = () => (
-    <Container>
-        <Content>
-            <Heading as="h1">ben dobson</Heading>
-            <Heading as="h5" style={{ marginBottom: '32px', marginTop: '8px' }}>
-                Personal Training &amp; Dietary Advice
-            </Heading>
-            <Tagline>
-                &quot;Everyone deserves good health and happiness. My goal is to
-                help people achieve both.&quot;
-            </Tagline>
-        </Content>
-    </Container>
-);
+const Header: FC = () => {
+    const data = useStaticQuery(graphql`
+        query HeaderQuery {
+            allFile(filter: { name: { eq: "header" } }) {
+                edges {
+                    node {
+                        childMarkdownRemark {
+                            frontmatter {
+                                subtitle
+                                tagline
+                                title
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    `);
+
+    const {
+        subtitle,
+        tagline,
+        title,
+    } = data.allFile.edges[0].node.childMarkdownRemark.frontmatter;
+
+    return (
+        <Container>
+            <Content>
+                <Heading as="h1">{title}</Heading>
+                <Heading
+                    as="h5"
+                    style={{ marginBottom: '32px', marginTop: '8px' }}
+                >
+                    {subtitle}
+                </Heading>
+                <Tagline>&quot;{tagline}&quot;</Tagline>
+            </Content>
+        </Container>
+    );
+};
 
 const Container = styled.header`
     padding: 180px 0;
@@ -28,6 +55,7 @@ const Container = styled.header`
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
+    position: relative;
 
     :before {
         position: absolute;
