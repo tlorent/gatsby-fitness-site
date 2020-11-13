@@ -4,26 +4,28 @@ import styled from 'styled-components';
 import Body from './typography/Body';
 import { h1CSS, h5CSS } from './typography/Heading';
 
-const About: FC = () => {
-    const data = useStaticQuery(graphql`
-        query AboutQuery {
-            allFile(filter: { name: { eq: "about" } }) {
-                edges {
-                    node {
-                        childMarkdownRemark {
-                            frontmatter {
-                                title
-                                quote
-                                about_text_paragraph_one
-                                about_text_paragraph_two
-                                about_text_paragraph_three
-                            }
+const query = graphql`
+    query AboutQuery {
+        allFile(filter: { name: { eq: "about" } }) {
+            edges {
+                node {
+                    childMarkdownRemark {
+                        frontmatter {
+                            title
+                            quote
+                            about_text_paragraph_one
+                            about_text_paragraph_two
+                            about_text_paragraph_three
                         }
                     }
                 }
             }
         }
-    `);
+    }
+`;
+
+const About: FC = () => {
+    const data = useStaticQuery(query);
 
     const {
         title,

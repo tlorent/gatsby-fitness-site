@@ -4,24 +4,26 @@ import styled from 'styled-components';
 import Body from './typography/Body';
 import Heading from './typography/Heading';
 
-const Header: FC = () => {
-    const data = useStaticQuery(graphql`
-        query HeaderQuery {
-            allFile(filter: { name: { eq: "header" } }) {
-                edges {
-                    node {
-                        childMarkdownRemark {
-                            frontmatter {
-                                subtitle
-                                tagline
-                                title
-                            }
+const query = graphql`
+    query HeaderQuery {
+        allFile(filter: { name: { eq: "header" } }) {
+            edges {
+                node {
+                    childMarkdownRemark {
+                        frontmatter {
+                            subtitle
+                            tagline
+                            title
                         }
                     }
                 }
             }
         }
-    `);
+    }
+`;
+
+const Header: FC = () => {
+    const data = useStaticQuery(query);
 
     const {
         subtitle,

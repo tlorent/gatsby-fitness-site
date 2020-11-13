@@ -3,11 +3,23 @@ backend:
     repo: tlorent/gatsby-fitness-site
 
 media_folder: static/images
+media_library:
+    name: cloudinary
+    config:
+        cloud_name: ded0rxgui
+        api_key: 292163457656584
+
 locale: 'nl'
+editor:
+    preview: false
 
 collections:
     - name: content
       label: Content
+      view_filters:
+          - label: 'Content uit 2020'
+            field: date
+            pattern: '2020'
       files:
           - label: 'Header Section'
             name: 'header'
@@ -42,4 +54,62 @@ collections:
                       name: about text paragraph three,
                       label: about text paragraph three,
                       widget: text,
+                  }
+          - label: 'Trainings Section'
+            name: 'training'
+            file: 'content/training.md'
+            fields:
+                - {
+                      name: title individual,
+                      label: title individual,
+                      widget: string,
+                      required: true,
+                  }
+                - {
+                      name: individual explanation,
+                      label: individual explanation,
+                      widget: string,
+                      required: true,
+                  }
+                - {
+                      name: individual image,
+                      label: individual image,
+                      widget: image,
+                      required: true,
+                  }
+                - {
+                      name: individual benefits,
+                      label: individual benefits,
+                      widget: list,
+                      max: 3,
+                      min: 1,
+                      field: { label: benefit, name: benefit, widget: string },
+                      required: true,
+                  }
+                - {
+                      name: title group,
+                      label: title group,
+                      widget: string,
+                      required: true,
+                  }
+                - {
+                      name: group explanation,
+                      label: group explanation,
+                      widget: string,
+                      required: true,
+                  }
+                - {
+                      name: group image,
+                      label: group image,
+                      widget: image,
+                      required: true,
+                  }
+                - {
+                      name: group benefits,
+                      label: group benefits,
+                      widget: list,
+                      max: 3,
+                      min: 1,
+                      field: { label: benefit, name: benefit, widget: string },
+                      required: true,
                   }

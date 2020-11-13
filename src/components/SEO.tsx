@@ -2,6 +2,17 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React, { FC } from 'react';
 import { Helmet } from 'react-helmet';
 
+const query = graphql`
+    query SEO {
+        site {
+            siteMetadata {
+                title
+                description
+            }
+        }
+    }
+`;
+
 const SEO: FC = () => {
     const {
         site: { siteMetadata },
@@ -21,14 +32,3 @@ const SEO: FC = () => {
 };
 
 export default SEO;
-
-const query = graphql`
-    query SEO {
-        site {
-            siteMetadata {
-                title
-                description
-            }
-        }
-    }
-`;
