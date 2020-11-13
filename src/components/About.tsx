@@ -82,6 +82,7 @@ const TitleContainer = styled.div`
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
         flex: 0 0 33%;
+        align-items: flex-end;
     }
 `;
 
@@ -101,6 +102,10 @@ const Quote = styled.h5`
     opacity: 0.75;
     color: ${({ theme }) => theme.colors.white};
     font-weight: 400;
+
+    @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
+        max-width: 50%;
+    }
 `;
 
 const Line = styled.hr`

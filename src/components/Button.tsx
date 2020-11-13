@@ -1,10 +1,10 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { UnreachableCaseError } from '../entities/UnreachableCaseError';
 
 type ButtonVariant = 'primary' | 'secondary';
 
-export interface Props {
+export interface Props extends HTMLAttributes<HTMLButtonElement> {
     label: string;
     variant?: ButtonVariant;
 }

@@ -3,6 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import About from '../components/About';
 import Header from '../components/Header';
 import SEO from '../components/SEO';
+import Trainings from '../components/Trainings';
 import theme from '../constants/theme';
 import GlobalStyle from '../globalStyling';
 
@@ -15,6 +16,7 @@ const Home: FC = () => {
                 <Wrapper>
                     <Header />
                     <About />
+                    <Trainings />
                 </Wrapper>
             </ThemeProvider>
         </>
