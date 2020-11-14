@@ -49,13 +49,15 @@ const StyledButton = styled.button<Pick<Props, 'variant'>>`
     padding: 0 26px;
     font-weight: 700;
     text-transform: uppercase;
-    text-align: center;
     letter-spacing: 1px;
     font-size: 12px;
     min-width: 200px;
     cursor: pointer;
     height: 50px;
     font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 export default Button;

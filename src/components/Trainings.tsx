@@ -6,7 +6,7 @@ import Body from './typography/Body';
 import { h1CSS } from './typography/Heading';
 
 const query = graphql`
-    query TrainingSquery {
+    query Trainings {
         allFile(filter: { name: { eq: "training" } }) {
             edges {
                 node {
@@ -105,6 +105,11 @@ const Content = styled.div`
     }
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
+        padding: 48px 5%;
+        padding-top: 0;
+    }
+
+    @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
         padding: 48px 5%;
     }
 `;

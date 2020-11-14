@@ -5,7 +5,7 @@ import Body from './typography/Body';
 import Heading from './typography/Heading';
 
 const query = graphql`
-    query HeaderQuery {
+    query Header {
         allFile(filter: { name: { eq: "header" } }) {
             edges {
                 node {

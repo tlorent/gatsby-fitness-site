@@ -113,3 +113,20 @@ collections:
                       field: { label: benefit, name: benefit, widget: string },
                       required: true,
                   }
+          - label: "Schedule Section"
+            name: "schedule"
+            file: "content/schedule.md"
+            fields:
+                - label: Days
+                  name: days
+                  widget: list
+                  fields:
+                    - { label: day, name: day, widget: string }
+                    - label: classes
+                      name: classes
+                      widget: list
+                      fields:
+                        - { label: start, name: startTime, widget: datetime, required: true }
+                        - { label: end, name: endTime, widget: datetime, required: true }
+                        - { label: title, name: classTitle, widget: string, required: true }
+                        - { label: location, name: location, widget: string, required: true }

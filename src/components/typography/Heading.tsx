@@ -23,6 +23,13 @@ export const h1CSS = css`
     font-family: 'Roboto Condensed', sans-serif;
 `;
 
+export const h4CSS = css`
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 26px;
+    color: ${({ theme }) => theme.colors.black};
+`;
+
 export const h5CSS = css`
     font-style: normal;
     font-size: 16px;

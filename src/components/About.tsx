@@ -1,11 +1,12 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React, { FC } from 'react';
 import styled from 'styled-components';
+import Separator from './Separator';
 import Body from './typography/Body';
 import { h1CSS, h5CSS } from './typography/Heading';
 
 const query = graphql`
-    query AboutQuery {
+    query About {
         allFile(filter: { name: { eq: "about" } }) {
             edges {
                 node {
@@ -41,7 +42,7 @@ const About: FC = () => {
                 <Title>{title}</Title>
                 <Quote as="h5">&quot;{quote}&quot;</Quote>
             </TitleContainer>
-            <Line />
+            <Separator />
             <TextContainer>
                 <Text size="tiny">{about_text_paragraph_one}</Text>
                 {about_text_paragraph_two && (
@@ -105,18 +106,6 @@ const Quote = styled.h5`
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
         max-width: 50%;
-    }
-`;
-
-const Line = styled.hr`
-    display: block;
-    border: none;
-    border-top: 1px solid #ccc;
-    margin: 24px 0;
-    width: 100%;
-
-    @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
-        display: none;
     }
 `;
 
