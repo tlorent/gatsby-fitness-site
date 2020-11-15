@@ -130,3 +130,16 @@ collections:
                         - { label: end, name: endTime, widget: datetime, required: true }
                         - { label: title, name: classTitle, widget: string, required: true }
                         - { label: location, name: location, widget: string, required: true }
+          - label: "Recommendations Section"
+            name: "recommendations"
+            file: "content/recommendations.md"
+            fields:
+                - label: Recommendations
+                  name: recommendations
+                  widget: list
+                  max: 3
+                  fields:
+                    - { label: quote, name: quote, widget: string, required: true }
+                    - { label: clientName, name: clientName, widget: string, required: true }
+                    - { label: clientYearsActive, name: clientYearsActive, widget: number, required: true }
+                    - { label: clientImage, name: clientImage, widget: image, required: true }

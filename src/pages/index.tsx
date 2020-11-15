@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import About from '../components/About';
 import Header from '../components/Header';
+import Recommendations from '../components/Recommendations';
 import Schedule from '../components/Schedule';
 import SEO from '../components/SEO';
 import Trainings from '../components/Trainings';
@@ -18,6 +19,7 @@ const Home: FC = () => (
                 <About />
                 <Trainings />
                 <Schedule />
+                <Recommendations />
             </Wrapper>
         </ThemeProvider>
     </>
