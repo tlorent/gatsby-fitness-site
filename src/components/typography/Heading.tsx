@@ -25,7 +25,7 @@ export const h1CSS = css`
 
 export const h4CSS = css`
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: clamp(18px, 2vw, 22px);
+    font-size: clamp(18px, 2vw, 24px);
     line-height: 26px;
     color: ${({ theme }) => theme.colors.black};
 `;

@@ -9,6 +9,7 @@ const theme = {
         greyDark: '#727272',
         greyHover: '#EEEEEE',
         pinkish: '#FEA9AA',
+        background: '#f8f8f8',
     },
     mediaQueries: {
         small: '576px',

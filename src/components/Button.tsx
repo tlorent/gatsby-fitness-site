@@ -16,7 +16,7 @@ const Button: FC<Props> = ({ label, variant, ...props }) => (
 );
 
 const primaryCSS = css`
-    background: ${({ theme }) => theme.colors.white};
+    background: transparent;
     color: ${({ theme }) => theme.colors.main};
     transition: all 0.3s ease;
 
