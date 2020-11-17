@@ -11,14 +11,13 @@ export interface Props extends HTMLAttributes<HTMLButtonElement> {
 
 const Button: FC<Props> = ({ label, variant, ...props }) => (
     <StyledButton variant={variant} {...props}>
-        {label}
+        <span data-text={label}>{label}</span>
     </StyledButton>
 );
 
 const primaryCSS = css`
     background: transparent;
     color: ${({ theme }) => theme.colors.main};
-    transition: all 0.3s ease;
 
     :hover {
         color: ${({ theme }) => theme.colors.white};
@@ -58,6 +57,23 @@ const StyledButton = styled.button<Pick<Props, 'variant'>>`
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    span {
+        position: relative;
+        transition: transform 0.3s ease;
+    }
+
+    :hover > span {
+        transform: translateY(300%);
+    }
+
+    span:before {
+        content: attr(data-text);
+        position: absolute;
+        top: -300%;
+    }
 `;
 
 export default Button;

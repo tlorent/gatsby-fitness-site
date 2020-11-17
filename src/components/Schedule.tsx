@@ -48,8 +48,8 @@ const renderSchedule = (days: Day[], currentDay: string) => {
         day.classes.map(
             ({ classTitle, location, startTime, endTime }, index) =>
                 currentDay === day.day && (
-                    <>
-                        <Class key={index}>
+                    <React.Fragment key={index}>
+                        <Class>
                             <Info>
                                 <Time>
                                     {format(new Date(startTime), 'hh:mm a')} -{' '}
@@ -66,7 +66,7 @@ const renderSchedule = (days: Day[], currentDay: string) => {
                             </div>
                         </Class>
                         {index !== day.classes.length - 1 && <ClassSeparator />}
-                    </>
+                    </React.Fragment>
                 )
         )
     );
