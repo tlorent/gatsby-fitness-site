@@ -1,5 +1,5 @@
 ---
-title: RETURNING TO FITNESS AFTER LONG PERIODS - WHAT NOT TO DO
+title: "Returning to fitness after long periods - what not to do "
 date: 2020-11-15T13:37:31.119Z
 category: Motivation
 author: Jane Dobson
