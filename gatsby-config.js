@@ -19,18 +19,11 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-prefetch-google-fonts',
+            resolve: 'gatsby-plugin-web-font-loader',
             options: {
-                fonts: [
-                    {
-                        family: 'Roboto Condensed',
-                        variants: ['300', '400', '600', '700'],
-                    },
-                    {
-                        family: 'Open Sans',
-                        variants: ['300', '400', '700'],
-                    },
-                ],
+                google: {
+                    families: ['Roboto Condensed:300', 'Open Sans:300'],
+                },
             },
         },
         {
