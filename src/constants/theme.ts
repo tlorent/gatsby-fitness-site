@@ -12,6 +12,7 @@ const theme = {
         background: '#f8f8f8',
     },
     mediaQueries: {
+        xs: '425px',
         small: '576px',
         medium: '768px',
         large: '992px',

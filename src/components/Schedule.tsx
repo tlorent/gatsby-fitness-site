@@ -140,8 +140,10 @@ const Tabs = styled.div`
     display: flex;
     justify-content: center;
     margin-bottom: 24px;
+    flex-direction: column;
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
+        flex-direction: row;
         align-self: center;
         width: 500px;
         margin-bottom: 48px;
@@ -182,7 +184,12 @@ const DayTab = styled.button<{ isActive: boolean }>`
 const Class = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    flex-direction: column;
+
+    @media (min-width: ${({ theme }) => theme.mediaQueries.xs}) {
+        flex-direction: row;
+        align-items: flex-end;
+    }
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.small}) {
         align-items: center;

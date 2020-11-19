@@ -21,6 +21,10 @@ const SEO: FC = () => {
 
     return (
         <Helmet>
+            <script
+                src="https://kit.fontawesome.com/2f096f0c47.js"
+                crossOrigin="anonymous"
+            />
             <title>
                 {title} - {description}
             </title>

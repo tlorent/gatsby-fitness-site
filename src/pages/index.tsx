@@ -10,6 +10,7 @@ import Trainings from '../components/Trainings';
 import theme from '../constants/theme';
 import GlobalStyle from '../globalStyling';
 import FAQ from '../components/FAQ';
+import Footer from '../components/Footer';
 
 const Home: FC = () => (
     <>
@@ -24,6 +25,7 @@ const Home: FC = () => (
                 <Recommendations />
                 <Insights />
                 <FAQ />
+                <Footer />
             </Wrapper>
         </ThemeProvider>
     </>
