@@ -9,6 +9,7 @@ media_library:
         cloud_name: ded0rxgui
         api_key: 292163457656584
 
+publish_mode: editorial_workflow
 locale: 'nl'
 editor:
     preview: false
@@ -18,6 +19,8 @@ collections:
       label: Blog
       folder: 'content/blog'
       create: true
+      slug: "{{title}}"
+      preview_path: "blog/{{slug}}"
       fields:
         - { label: Title, name: title, widget: string }
         - { label: Date, name: date, widget: date, required: true }
