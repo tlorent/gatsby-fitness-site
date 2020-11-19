@@ -15,11 +15,11 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const Slider: FC<Props> = ({ recommendations, ...props }) => {
     const [current, setCurrent] = useState(recommendations[0]);
-    const [active, setActive] = useState(0);
+    const [activeSlide, setActiveSlide] = useState(0);
 
-    const handleSetClick = (index: number) => {
+    const handleClick = (index: number) => {
         setCurrent(recommendations[index]);
-        setActive(index);
+        setActiveSlide(index);
     };
 
     return (
@@ -35,11 +35,11 @@ const Slider: FC<Props> = ({ recommendations, ...props }) => {
                     <Circle
                         key={index}
                         data-quote={index}
-                        onClick={() => handleSetClick(index)}
-                        onKeyPress={() => handleSetClick(index)}
+                        onClick={() => handleClick(index)}
+                        onKeyPress={() => handleClick(index)}
                         role="button"
                         tabIndex={0}
-                        active={active}
+                        activeSlide={activeSlide}
                     />
                 ))}
             </CirclesWrapper>
@@ -89,7 +89,7 @@ const CirclesWrapper = styled.div`
     display: flex;
 `;
 
-const Circle = styled.span<{ active: number }>`
+const Circle = styled.span<{ activeSlide: number }>`
     height: 20px;
     width: 20px;
     margin: 0 3px;
@@ -99,9 +99,9 @@ const Circle = styled.span<{ active: number }>`
     cursor: pointer;
     outline: 0;
 
-    ${({ active }) =>
+    ${({ activeSlide }) =>
         css`
-            &[data-quote='${active}']::before {
+            &[data-quote='${activeSlide}']::before {
                 background-color: ${({ theme }) => theme.colors.greyDark};
             }
         `}

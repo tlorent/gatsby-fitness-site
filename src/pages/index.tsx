@@ -9,6 +9,7 @@ import SEO from '../components/SEO';
 import Trainings from '../components/Trainings';
 import theme from '../constants/theme';
 import GlobalStyle from '../globalStyling';
+import FAQ from '../components/FAQ';
 
 const Home: FC = () => (
     <>
@@ -22,6 +23,7 @@ const Home: FC = () => (
                 <Schedule />
                 <Recommendations />
                 <Insights />
+                <FAQ />
             </Wrapper>
         </ThemeProvider>
     </>

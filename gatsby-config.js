@@ -22,7 +22,7 @@ module.exports = {
             resolve: 'gatsby-plugin-web-font-loader',
             options: {
                 google: {
-                    families: ['Roboto Condensed:300', 'Open Sans:300'],
+                    families: ['Roboto Condensed:300', 'Open Sans:300, 700'],
                 },
             },
         },
