@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby';
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styled from 'styled-components';
 import { FaqQuery } from '../generated/graphql';
 import Accordion from './Accordion';
@@ -26,6 +26,9 @@ const query = graphql`
 
 const FAQ: FC = () => {
     const data = useStaticQuery<FaqQuery>(query);
+    const [currentlyActive, setCurrentlyActive] = useState<number | undefined>(
+        undefined
+    );
 
     return (
         <Section>
@@ -33,7 +36,12 @@ const FAQ: FC = () => {
                 <SectionTitle>FAQ</SectionTitle>
                 {data.allMarkdownRemark.edges.map((edge) =>
                     edge.node.frontmatter?.faq?.map((faq, index) => (
-                        <Accordion key={index} faq={faq} />
+                        <Accordion
+                            key={index}
+                            faq={faq}
+                            isActive={currentlyActive === index}
+                            handleSetActive={() => setCurrentlyActive(index)}
+                        />
                     ))
                 )}
             </Container>

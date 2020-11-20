@@ -5,19 +5,29 @@ import Body from './typography/Body';
 
 interface Props {
     faq: Maybe<Pick<MarkdownRemarkFrontmatterFaq, 'question' | 'answer'>>;
+    isActive: boolean;
+    handleSetActive: () => void;
 }
 
-const Accordion: FC<Props> = ({ faq }) => {
-    const [active, setActive] = useState(false);
+const Accordion: FC<Props> = ({ faq, isActive, handleSetActive }) => {
     const [maxHeight, setMaxHeight] = useState<number | undefined>(0);
     const contentRef = useRef<HTMLDivElement | null>(null);
 
     const toggleAccordion = () => {
-        setActive(!active);
-        setMaxHeight(
-            contentRef.current?.scrollHeight &&
-                contentRef.current.scrollHeight + 40
-        );
+        if (
+            isActive &&
+            maxHeight ===
+                (contentRef.current?.scrollHeight &&
+                    contentRef.current?.scrollHeight + 40)
+        ) {
+            setMaxHeight(0);
+        } else {
+            handleSetActive();
+            setMaxHeight(
+                contentRef.current?.scrollHeight &&
+                    contentRef.current.scrollHeight + 40
+            );
+        }
     };
 
     return (
@@ -25,7 +35,7 @@ const Accordion: FC<Props> = ({ faq }) => {
             <ToggleButton onClick={toggleAccordion}>
                 <Title size="tiny">{faq?.question}</Title>
             </ToggleButton>
-            <Content ref={contentRef} active={active} maxHeight={maxHeight}>
+            <Content ref={contentRef} isActive={isActive} maxHeight={maxHeight}>
                 <Text>{faq?.answer}</Text>
             </Content>
         </Container>
@@ -59,9 +69,9 @@ const ToggleButton = styled.button`
     }
 `;
 
-const Content = styled.div<{ active: boolean; maxHeight?: number }>`
-    max-height: ${({ active, maxHeight }) =>
-        active ? `${maxHeight}px` : '0px'};
+const Content = styled.div<{ isActive: boolean; maxHeight?: number }>`
+    max-height: ${({ isActive, maxHeight }) =>
+        isActive ? `${maxHeight}px` : '0px'};
     overflow: hidden;
     text-align: center;
 
