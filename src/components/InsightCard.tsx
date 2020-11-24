@@ -26,7 +26,7 @@ const InsightCard: FC<Props> = ({ insight, url }) => {
                 </Caption>
                 <Title>{insight?.title}</Title>
             </div>
-            <Link to={url ?? '/blogs'} style={{ textDecoration: 'none' }}>
+            <Link to={url ?? '/blog'} style={{ textDecoration: 'none' }}>
                 <ReadButton label="Read Insight" />
             </Link>
         </Card>
@@ -40,13 +40,6 @@ const Card = styled.div`
     background-color: ${({ theme }) => theme.colors.background};
     padding: 40px 32px;
     min-height: 380px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-
-    @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
-        margin-bottom: 0;
-        flex: 0 0 33%;
-    }
 `;
 
 const Caption = styled(Body)`

@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import Body from './typography/Body';
-import Heading from './typography/Heading';
+import { h1CSS, h5CSS } from './typography/Heading';
 
 const query = graphql`
     query Header {
@@ -34,13 +34,8 @@ const Header: FC = () => {
     return (
         <Container>
             <Content>
-                <Heading as="h1">{title}</Heading>
-                <Heading
-                    as="h5"
-                    style={{ marginBottom: '32px', marginTop: '8px' }}
-                >
-                    {subtitle}
-                </Heading>
+                <MainTitle>{title}</MainTitle>
+                <SubTitle>{subtitle}</SubTitle>
                 <Tagline>&quot;{tagline}&quot;</Tagline>
             </Content>
         </Container>
@@ -74,6 +69,18 @@ const Container = styled.header`
     @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
         padding: 240px 0;
     }
+`;
+
+const MainTitle = styled.h1`
+    ${h1CSS};
+    color: ${({ theme }) => theme.colors.white};
+`;
+
+const SubTitle = styled.h5`
+    ${h5CSS};
+    color: ${({ theme }) => theme.colors.white};
+    margin-bottom: 32px;
+    margin-top: 8px;
 `;
 
 const Content = styled.section`

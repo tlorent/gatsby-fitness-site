@@ -64,12 +64,9 @@ const SectionTitle = styled.h2`
 `;
 
 const InsightCards = styled.div`
-    display: flex;
-    flex-direction: column;
-
-    @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
-        flex-direction: row;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
 `;
 
 export default InsightsWrapper;

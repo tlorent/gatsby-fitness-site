@@ -1,6 +1,8 @@
 import { graphql } from 'gatsby';
 import React, { FC } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import Footer from '../components/Footer';
+import SEO from '../components/SEO';
 import Separator from '../components/Separator';
 import Body from '../components/typography/Body';
 import { h1CSS } from '../components/typography/Heading';
@@ -22,9 +24,10 @@ interface Props {
             >;
         };
     };
+    location: Location;
 }
 
-const BlogPost: FC<Props> = ({ data }) => {
+const BlogPost: FC<Props> = ({ data, location }) => {
     const {
         title,
         text,
@@ -36,6 +39,12 @@ const BlogPost: FC<Props> = ({ data }) => {
 
     return (
         <>
+            <SEO
+                title={title ?? 'Blog post'}
+                url={location.href}
+                isBlogPost
+                description={title}
+            />
             <GlobalStyle />
             <ThemeProvider theme={theme}>
                 <Section>
@@ -61,6 +70,7 @@ const BlogPost: FC<Props> = ({ data }) => {
                         <BlogText>{text}</BlogText>
                     </Container>
                 </Section>
+                <Footer />
             </ThemeProvider>
         </>
     );
@@ -162,8 +172,9 @@ const StyledSeparator = styled(Separator)`
 `;
 
 export const query = graphql`
-    query($slug: String!) {
-        markdownRemark(fields: { slug: { eq: $slug } }) {
+    query($id: String!) {
+        markdownRemark(id: { eq: $id }) {
+            id
             frontmatter {
                 category
                 title

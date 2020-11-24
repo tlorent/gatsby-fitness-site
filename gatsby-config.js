@@ -8,6 +8,9 @@ module.exports = {
     siteMetadata: {
         title: 'Ben Dobson',
         description: 'Personal Training & Dietary Advice',
+        siteUrl: 'https://gatsby-fitness-site.netlify.app/',
+        author: 'Ben Dobson',
+        keywords: ['personal training', 'fitness', 'diet', 'ben dobson'],
     },
     plugins: [
         'gatsby-plugin-styled-components',

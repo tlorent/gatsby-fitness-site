@@ -1,22 +1,26 @@
 import { graphql } from 'gatsby';
 import React, { FC } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import Footer from '../components/Footer';
 import InsightsWrapper from '../components/InsightsWrapper';
+import SEO from '../components/SEO';
 import theme from '../constants/theme';
 import { InsightsQuery } from '../generated/graphql';
 import GlobalStyle from '../globalStyling';
 
 interface Props {
     data: InsightsQuery;
+    location: Location;
 }
 
-const Blogs: FC<Props> = ({ data }) => (
+const Blog: FC<Props> = ({ data, location }) => (
     <>
-        {/* <SEO /> */}
+        <SEO title="Blog" url={location.href} />
         <GlobalStyle />
         <ThemeProvider theme={theme}>
             <Wrapper>
                 <InsightsWrapper data={data} />
+                <Footer />
             </Wrapper>
         </ThemeProvider>
     </>
@@ -27,7 +31,6 @@ const Wrapper = styled.div`
     height: 100%;
 `;
 
-// TODO: fragment.
 export const query = graphql`
     query {
         allMarkdownRemark(
@@ -50,4 +53,4 @@ export const query = graphql`
     }
 `;
 
-export default Blogs;
+export default Blog;

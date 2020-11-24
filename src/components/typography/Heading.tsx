@@ -14,30 +14,36 @@ const Heading: FC<Props> = ({ children, as, ...props }) => (
     </Inner>
 );
 
+const defaults = css`
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    padding: 0;
+`;
+
 export const h1CSS = css`
+    ${defaults};
     font-size: clamp(32px, 5vw, 56px);
     line-height: 40px;
     text-transform: uppercase;
     font-weight: 600;
     font-style: italic;
-    font-family: 'Roboto Condensed', sans-serif;
 `;
 
 export const h4CSS = css`
-    font-family: 'Roboto Condensed', sans-serif;
+    ${defaults};
     font-size: clamp(18px, 2vw, 22px);
     line-height: 26px;
     color: ${({ theme }) => theme.colors.black};
 `;
 
 export const h5CSS = css`
+    ${defaults};
     font-style: normal;
     font-size: 16px;
     line-height: 25px;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 300;
-    font-family: 'Roboto Condensed', sans-serif;
 `;
 
 const getCSS = (as: string) => {
@@ -55,12 +61,6 @@ const getCSS = (as: string) => {
 
 const Inner = styled.h2<Props>`
     ${({ as }) => getCSS(as)}
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto Condensed', sans-serif;
-
-    /* override when necessary */
-    color: ${({ theme }) => theme.colors.white};
 `;
 
 export default Heading;

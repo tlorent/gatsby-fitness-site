@@ -12,9 +12,9 @@ import GlobalStyle from '../globalStyling';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 
-const Home: FC = () => (
+const Home: FC<{ location: Location }> = ({ location }) => (
     <>
-        <SEO />
+        <SEO url={location.href} title="/" />
         <GlobalStyle />
         <ThemeProvider theme={theme}>
             <Wrapper>
@@ -33,7 +33,7 @@ const Home: FC = () => (
 
 const Wrapper = styled.div`
     width: 100vw;
-    height: 100%;
+    min-height: 100vh;
 `;
 
 export default Home;

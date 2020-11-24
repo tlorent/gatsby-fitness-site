@@ -34,7 +34,7 @@ const Insights: FC = () => {
     return (
         <Container>
             <InsightsWrapper data={data} />
-            <Link to="/blogs" style={{ textDecoration: 'none' }}>
+            <Link to="/blog" style={{ textDecoration: 'none' }}>
                 <Button label="Read all insights" />
             </Link>
         </Container>
