@@ -68,6 +68,7 @@ const Container = styled.header`
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
         padding: 240px 0;
+        background-position: 50% 30%;
     }
 `;
 

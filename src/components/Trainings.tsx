@@ -111,6 +111,7 @@ const Content = styled.div`
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
         padding: 48px 5%;
+        width: 50%;
     }
 `;
 
@@ -138,11 +139,16 @@ const Image = styled.img`
     width: 100%;
     max-height: 500px;
     margin-bottom: 48px;
+    object-fit: cover;
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
         max-height: none;
         width: 50%;
         margin-bottom: 0;
+    }
+
+    @media (min-width: ${({ theme }) => theme.mediaQueries.xl}) {
+        max-height: 500px;
     }
 `;
 

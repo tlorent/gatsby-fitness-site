@@ -85,6 +85,10 @@ const TitleContainer = styled.div`
         flex: 0 0 33%;
         align-items: flex-end;
     }
+
+    @media (min-width: ${({ theme }) => theme.mediaQueries.xl}) {
+        flex: 0 0 12%;
+    }
 `;
 
 const Title = styled.h2`
@@ -118,6 +122,10 @@ const TextContainer = styled.div`
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
         flex: 0 0 41.66%;
+    }
+
+    @media (min-width: ${({ theme }) => theme.mediaQueries.xl}) {
+        flex: 0 0 21.66%;
     }
 `;
 
