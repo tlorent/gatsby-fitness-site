@@ -86,7 +86,7 @@ const TitleContainer = styled.div`
         align-items: flex-end;
     }
 
-    @media (min-width: ${({ theme }) => theme.mediaQueries.xl}) {
+    @media (min-width: ${({ theme }) => theme.mediaQueries.huge}) {
         flex: 0 0 12%;
     }
 `;
@@ -124,7 +124,7 @@ const TextContainer = styled.div`
         flex: 0 0 41.66%;
     }
 
-    @media (min-width: ${({ theme }) => theme.mediaQueries.xl}) {
+    @media (min-width: ${({ theme }) => theme.mediaQueries.huge}) {
         flex: 0 0 21.66%;
     }
 `;

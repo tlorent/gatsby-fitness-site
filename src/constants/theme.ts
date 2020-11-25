@@ -17,6 +17,7 @@ const theme = {
         medium: '768px',
         large: '992px',
         xl: '1200px',
+        huge: '2560px',
     },
 };
 
