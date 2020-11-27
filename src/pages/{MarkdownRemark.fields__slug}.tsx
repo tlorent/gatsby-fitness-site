@@ -7,9 +7,7 @@ import Separator from '../components/Separator';
 import Body from '../components/typography/Body';
 import { h1CSS } from '../components/typography/Heading';
 import theme from '../constants/theme';
-// import { MarkdownRemarkFrontmatter } from '../generated/graphql';
 import GlobalStyle from '../globalStyling';
-import Img from 'gatsby-image';
 
 interface Props {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -40,14 +38,18 @@ const BlogPost: FC<Props> = ({ data, location }) => {
                 <Section>
                     <Container>
                         <BlogTitle>{title}</BlogTitle>
-                        {/* <Img
-                            fluid={
+                        <img
+                            srcSet={
                                 data.markdownRemark.featuredImg.childImageSharp
-                                    .fluid
+                                    .fluid.srcSet
                             }
                             alt={data.markdownRemark.frontmatter.featuredImgAlt}
+                            sizes={
+                                data.markdownRemark.featuredImg.childImageSharp
+                                    .fluid.sizes
+                            }
                             style={{ margin: '25px 0' }}
-                        /> */}
+                        />
                         <BlogInfo>
                             <Info size="tiny">
                                 {date} in {category}
@@ -83,7 +85,6 @@ const Section = styled.section`
 `;
 
 const Container = styled.div`
-    padding: 0 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
