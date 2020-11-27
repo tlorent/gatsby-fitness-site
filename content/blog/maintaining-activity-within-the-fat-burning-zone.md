@@ -1,9 +1,11 @@
 ---
 title: Maintaining activity within the fat burning zone
 date: 2020-11-01T09:35:37.569Z
+featuredImgUrl: https://res.cloudinary.com/ded0rxgui/image/upload/v1606398429/single-training.jpg
+featuredImgAlt: Woman lifting weights
 category: Fitness
 author: Ben Dobson
-author-image: https://res.cloudinary.com/ded0rxgui/image/upload/c_thumb,w_200,g_face/v1605604833/free-to-use-sounds-ObbDrFOudbY-unsplash_gzg4yw.jpg
+authorImage: https://res.cloudinary.com/ded0rxgui/image/upload/c_thumb,w_200,g_face/v1605604833/free-to-use-sounds-ObbDrFOudbY-unsplash_gzg4yw.jpg
 text: >-
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
   incididunt ut labore et dolore magna aliqua. Aliquam sem fringilla ut morbi
@@ -27,4 +29,5 @@ text: >-
 
 
   Volutpat sed cras ornare arcu dui. Ut sem viverra aliquet eget. In hac habitasse platea dictumst quisque sagittis purus sit. Blandit massa enim nec dui nunc. Ornare arcu dui vivamus arcu felis. Aliquet porttitor lacus luctus accumsan tortor. Vel pretium lectus quam id leo in vitae turpis. In ante metus dictum at tempor commodo ullamcorper. Adipiscing vitae proin sagittis nisl rhoncus mattis. Nibh mauris cursus mattis molestie a iaculis at erat. Donec adipiscing tristique risus nec feugiat in fermentum posuere. Urna nunc id cursus metus aliquam eleifend mi.
+author-image: https://res.cloudinary.com/ded0rxgui/image/upload/c_thumb,w_200,g_face/v1605604833/free-to-use-sounds-ObbDrFOudbY-unsplash_gzg4yw.jpg
 ---
