@@ -22,18 +22,20 @@ collections:
       slug: "{{title}}"
       preview_path: "blog/{{slug}}"
       fields:
-        - { label: Title, name: title, widget: string }
+        - { label: Title, name: title, widget: string, required: true }
         - { label: Date, name: date, widget: date, required: true }
+        - { label: Featured Image, name: featuredImgUrl, widget: image, required: true }
+        - { label: Featured Image Alt, name: featuredImgAlt, widget: string, required: true }
         - { label: Category, name: category, widget: select, options: ["Fitness", "Diet", "Motivation"], required: true }
         - { label: Author, name: author, widget: select, options: ["Ben Dobson", "Jane Dobson"], required: true }
-        - label: "Author Image"
-          name: "author-image"
-          widget: "select"
+        - label: Author Image
+          name: authorImage
+          widget: select
           required: true
           options:
           - { label: "Ben Dobson", value: "https://res.cloudinary.com/ded0rxgui/image/upload/c_thumb,w_200,g_face/v1605604833/free-to-use-sounds-ObbDrFOudbY-unsplash_gzg4yw.jpg" }
           - { label: "Jane Dobson", value: "https://res.cloudinary.com/ded0rxgui/image/upload/c_thumb,w_200,g_face/v1605604834/shin-enn-yapp-87iEXHGIDnU-unsplash_nyhjcc.jpg" }
-        - { label: Text, name: text, widget: text }
+        - { label: Text, name: text, widget: text, required: true }
     - name: content
       label: Content
       view_filters:

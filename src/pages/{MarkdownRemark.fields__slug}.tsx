@@ -7,23 +7,13 @@ import Separator from '../components/Separator';
 import Body from '../components/typography/Body';
 import { h1CSS } from '../components/typography/Heading';
 import theme from '../constants/theme';
-import { MarkdownRemarkFrontmatter } from '../generated/graphql';
+// import { MarkdownRemarkFrontmatter } from '../generated/graphql';
 import GlobalStyle from '../globalStyling';
+import Img from 'gatsby-image';
 
 interface Props {
-    data: {
-        markdownRemark: {
-            frontmatter: Pick<
-                MarkdownRemarkFrontmatter,
-                | 'category'
-                | 'title'
-                | 'date'
-                | 'text'
-                | 'author'
-                | 'author_image'
-            >;
-        };
-    };
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    data: any;
     location: Location;
 }
 
@@ -34,7 +24,7 @@ const BlogPost: FC<Props> = ({ data, location }) => {
         category,
         date,
         author,
-        author_image,
+        authorImage,
     } = data.markdownRemark.frontmatter;
 
     return (
@@ -50,12 +40,20 @@ const BlogPost: FC<Props> = ({ data, location }) => {
                 <Section>
                     <Container>
                         <BlogTitle>{title}</BlogTitle>
+                        {/* <Img
+                            fluid={
+                                data.markdownRemark.featuredImg.childImageSharp
+                                    .fluid
+                            }
+                            alt={data.markdownRemark.frontmatter.featuredImgAlt}
+                            style={{ margin: '25px 0' }}
+                        /> */}
                         <BlogInfo>
                             <Info size="tiny">
                                 {date} in {category}
                             </Info>
                             <Author>
-                                <AuthorImage url={author_image ?? '/'} />
+                                <AuthorImage url={authorImage ?? '/'} />
                                 <AuthorInfo>
                                     <AuthorName size="tiny">
                                         {author}
@@ -120,7 +118,7 @@ const BlogInfo = styled.div`
 
 const BlogText = styled(Body)`
     color: ${({ theme }) => theme.colors.black};
-    max-width: 60%;
+    max-width: 70%;
     margin-top: 20px;
 `;
 
@@ -181,7 +179,15 @@ export const query = graphql`
                 date(formatString: "DD MMMM, YYYY")
                 text
                 author
-                author_image
+                authorImage
+                featuredImgAlt
+            }
+            featuredImg {
+                childImageSharp {
+                    fluid(maxWidth: 500) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
             }
             fields {
                 slug

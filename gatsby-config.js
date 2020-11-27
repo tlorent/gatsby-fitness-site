@@ -41,5 +41,7 @@ module.exports = {
         },
         `gatsby-transformer-remark`,
         'gatsby-plugin-react-helmet',
+        'gatsby-transformer-sharp',
+        'gatsby-plugin-sharp',
     ],
 };
