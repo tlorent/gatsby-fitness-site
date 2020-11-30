@@ -46,7 +46,7 @@ const Caption = styled(Body)`
     color: ${({ theme }) => theme.colors.greyDark};
 `;
 
-const Title = styled.h4`
+const Title = styled.h3`
     ${h4CSS};
     font-style: italic;
     line-height: 32px;

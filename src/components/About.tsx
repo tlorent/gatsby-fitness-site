@@ -40,7 +40,7 @@ const About: FC = () => {
         <Container>
             <TitleContainer>
                 <Title>{title}</Title>
-                <Quote as="h5">&quot;{quote}&quot;</Quote>
+                <Quote>&quot;{quote}&quot;</Quote>
             </TitleContainer>
             <Separator />
             <TextContainer>
@@ -101,7 +101,7 @@ const Title = styled.h2`
     }
 `;
 
-const Quote = styled.h5`
+const Quote = styled.h3`
     ${h5CSS}
     font-style: italic;
     opacity: 0.75;

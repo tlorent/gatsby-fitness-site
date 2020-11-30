@@ -77,7 +77,7 @@ const MainTitle = styled.h1`
     color: ${({ theme }) => theme.colors.white};
 `;
 
-const SubTitle = styled.h5`
+const SubTitle = styled.h2`
     ${h5CSS};
     color: ${({ theme }) => theme.colors.white};
     margin-bottom: 32px;

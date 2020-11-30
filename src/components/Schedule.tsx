@@ -58,7 +58,9 @@ const renderSchedule = (days: Day[], currentDay: string) => {
                                 <ClassTitle>{classTitle}</ClassTitle>
                                 <Location size="tiny">{location}</Location>
                                 <Body size="tiny">
-                                    <Directions>Get directions</Directions>
+                                    <Directions href="/">
+                                        Get directions
+                                    </Directions>
                                 </Body>
                             </Info>
                             <div>
@@ -201,7 +203,7 @@ const Info = styled.div`
     flex-direction: column;
 `;
 
-const Time = styled.h6`
+const Time = styled.h3`
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 700;

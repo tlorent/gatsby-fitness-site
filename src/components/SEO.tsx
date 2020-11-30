@@ -10,6 +10,7 @@ const query = graphql`
                 description
                 siteUrl
                 keywords
+                author
             }
         }
     }
@@ -40,63 +41,35 @@ const SEO: FC<Props> = ({
         title === '/'
             ? `${siteMetadata.title} - ${siteMetadata.description}`
             : title;
-    // Only necessary if you have several paths to the same content.
-    const canonical = pathname ? `${siteMetadata.siteUrl}${pathname}` : null;
+
+    /*
+        Only necessary if you have several paths to the same content.
+        For example, a product page on mobile and desktop.
+    */
+    const canonical = pathname
+        ? `${siteMetadata.siteUrl}${pathname}`
+        : siteMetadata.siteUrl;
 
     return (
         <Helmet
             titleTemplate={title !== '/' ? `%s | ${siteMetadata.title}` : ''}
             title={metaTitle}
-            htmlAttributes={{
-                lang: 'en',
-            }}
-            meta={[
-                {
-                    name: 'description',
-                    content: metaDescription,
-                },
-                {
-                    name: 'keywords',
-                    content: siteMetadata.keywords.join(','),
-                },
-                {
-                    property: 'og:title',
-                    content: metaTitle,
-                },
-                {
-                    property: 'og:description',
-                    content: metaDescription,
-                },
-                {
-                    property: 'og:type',
-                    content: isBlogPost ? 'article' : 'website',
-                },
-                {
-                    property: 'og:sitename',
-                    content: siteMetadata.title,
-                },
-                {
-                    property: 'og:url',
-                    content: url,
-                },
-            ]}
-            link={
-                canonical
-                    ? [
-                          {
-                              rel: 'canonical',
-                              href: canonical,
-                          },
-                      ]
-                    : []
-            }
         >
             {/* Meta tags */}
+            <html lang="en" />
+            <meta name="description" content={metaDescription} />
+            <meta name="keywords" content={siteMetadata.keywords.join(',')} />
+            <meta name="author" content={siteMetadata.author} />
             <meta
                 name="viewport"
                 content="width=device-width,initial-scale=1.0"
             />
-            <meta charSet="utf-8" />
+            <link rel="canonical" href={canonical} />
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link
+                href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&family=Roboto+Condensed:wght@300;700&display=swap"
+                rel="stylesheet"
+            />
 
             {/* favicons */}
             <link
@@ -122,14 +95,17 @@ const SEO: FC<Props> = ({
             <meta
                 property="og:image"
                 content="https://images.unsplash.com/photo-1600181957705-92f267a2740e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80"
-                key="ogimage"
             />
+            <meta property="og:title" content={metaTitle} />
+            <meta property="og:description" content={metaDescription} />
+            <meta
+                property="og:type"
+                content={isBlogPost ? 'article' : 'website'}
+            />
+            <meta property="og:sitename" content={siteMetadata.title} />
+            <meta property="og:url" content={url} />
 
             {/* Scripts */}
-            <script
-                src="https://kit.fontawesome.com/2f096f0c47.js"
-                crossOrigin="anonymous"
-            />
 
             {children}
         </Helmet>

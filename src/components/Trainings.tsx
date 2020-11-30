@@ -45,7 +45,12 @@ const Trainings: FC = () => {
     return (
         <Container>
             <TrainingBlock>
-                <Image src={individual_image} alt={title_individual} />
+                <Image
+                    src={individual_image}
+                    alt={title_individual}
+                    height={500}
+                    width={700}
+                />
                 <Content>
                     <Title>{title_individual}</Title>
                     <Explanation size="tiny">
@@ -69,6 +74,8 @@ const Trainings: FC = () => {
                     src={group_image}
                     alt={title_group}
                     style={{ order: 2 }}
+                    height={500}
+                    width={700}
                 />
                 <Content>
                     <Title>{title_group}</Title>
@@ -137,12 +144,11 @@ const TrainingBlock = styled.div`
 
 const Image = styled.img`
     width: 100%;
-    max-height: 500px;
+    height: auto;
     margin-bottom: 48px;
     object-fit: cover;
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
-        max-height: none;
         width: 50%;
         margin-bottom: 0;
     }

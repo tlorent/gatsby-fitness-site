@@ -22,24 +22,25 @@ module.exports = {
             },
         },
         {
-            resolve: 'gatsby-plugin-web-font-loader',
-            options: {
-                google: {
-                    families: [
-                        'Roboto Condensed:300, 600',
-                        'Open Sans:300, 700',
-                    ],
-                },
-            },
-        },
-        {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `content`,
                 path: `${__dirname}/content`,
             },
         },
-        `gatsby-transformer-remark`,
+        {
+            resolve: 'gatsby-plugin-robots-txt',
+            options: {
+                policy: [
+                    {
+                        userAgent: '*',
+                        allow: '/',
+                    },
+                ],
+            },
+        },
+        'gatsby-transformer-remark',
         'gatsby-plugin-react-helmet',
+        'gatsby-plugin-sitemap',
     ],
 };

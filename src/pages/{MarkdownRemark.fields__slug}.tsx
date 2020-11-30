@@ -44,6 +44,7 @@ const BlogPost: FC<Props> = ({ data, location }) => {
                 url={location.href}
                 isBlogPost
                 description={title}
+                pathname={location.pathname}
             />
             <GlobalStyle />
             <ThemeProvider theme={theme}>

@@ -40,6 +40,7 @@ const Slider: FC<Props> = ({ recommendations, ...props }) => {
                         role="button"
                         tabIndex={0}
                         activeSlide={activeSlide}
+                        aria-label="Choose a client recommendation"
                     />
                 ))}
             </CirclesWrapper>
@@ -66,7 +67,7 @@ const Container = styled.div<{ imageURL: string }>`
     }
 `;
 
-const ClientInfo = styled.h6`
+const ClientInfo = styled.h5`
     color: ${({ theme }) => theme.colors.white};
     letter-spacing: 2px;
     font-weight: 700;
