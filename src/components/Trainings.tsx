@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Button from './Button';
 import Body from './typography/Body';
 import { h1CSS } from './typography/Heading';
+import 'lazysizes';
 
 const query = graphql`
     query Trainings {
@@ -14,8 +15,8 @@ const query = graphql`
                         frontmatter {
                             title_individual
                             individual_explanation
-                            individual_image
                             individual_benefits
+                            individual_image
                             title_group
                             group_explanation
                             group_image
@@ -34,22 +35,23 @@ const Trainings: FC = () => {
     const {
         title_individual,
         individual_explanation,
-        individual_image,
         individual_benefits,
+        individual_image,
         title_group,
         group_explanation,
-        group_image,
         group_benefits,
+        group_image,
     } = data.allFile.edges[0].node.childMarkdownRemark.frontmatter;
 
     return (
         <Container>
             <TrainingBlock>
                 <Image
-                    src={individual_image}
                     alt={title_individual}
                     height={500}
                     width={700}
+                    className="lazyload"
+                    data-src={individual_image}
                 />
                 <Content>
                     <Title>{title_individual}</Title>
@@ -71,11 +73,12 @@ const Trainings: FC = () => {
             </TrainingBlock>
             <TrainingBlock style={{ backgroundColor: '#f8f8f8' }}>
                 <Image
-                    src={group_image}
                     alt={title_group}
                     style={{ order: 2 }}
                     height={500}
                     width={700}
+                    className="lazyload"
+                    data-src={group_image}
                 />
                 <Content>
                     <Title>{title_group}</Title>

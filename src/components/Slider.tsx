@@ -91,8 +91,8 @@ const CirclesWrapper = styled.div`
 `;
 
 const Circle = styled.span<{ activeSlide: number }>`
-    height: 20px;
-    width: 20px;
+    height: 48px;
+    width: 48px;
     margin: 0 3px;
     display: flex;
     align-items: center;
@@ -113,11 +113,21 @@ const Circle = styled.span<{ activeSlide: number }>`
 
     :before {
         content: '';
-        height: 10px;
-        width: 10px;
+        height: 15px;
+        width: 15px;
         border-radius: 50%;
         background-color: ${({ theme }) => theme.colors.greyLight};
         transition: background-color 0.3s ease;
+
+        @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
+            height: 10px;
+            width: 10px;
+        }
+    }
+
+    @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
+        height: 20px;
+        width: 20px;
     }
 `;
 
