@@ -3,7 +3,7 @@ title individual: Individual Training
 individual explanation: Perfect for those who need a little extra motivation.
   You'll receive a fully personalised workout and dietary program that we'll
   monitor together.
-individual image: /static/images/single-training.jpg
+individual image: https://res.cloudinary.com/ded0rxgui/image/upload/f_auto,q_auto/v1606398429/single-training.jpg
 individual benefits:
   - Flexible booking times
   - Personal Dietary Advice
