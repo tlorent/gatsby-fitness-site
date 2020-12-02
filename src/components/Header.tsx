@@ -3,18 +3,26 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import Body from './typography/Body';
 import { h1CSS, h5CSS } from './typography/Heading';
+import Img, { FluidObject } from 'gatsby-image';
 
 const query = graphql`
     query Header {
-        allFile(filter: { name: { eq: "header" } }) {
+        allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/header.md/i" } }
+        ) {
             edges {
                 node {
-                    childMarkdownRemark {
-                        frontmatter {
-                            subtitle
-                            tagline
-                            title
+                    frontmatter {
+                        title
+                        subtitle
+                        headerImage {
+                            childImageSharp {
+                                fluid {
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
                         }
+                        tagline
                     }
                 }
             }
@@ -29,10 +37,14 @@ const Header: FC = () => {
         subtitle,
         tagline,
         title,
-    } = data.allFile.edges[0].node.childMarkdownRemark.frontmatter;
+        headerImage,
+    } = data.allMarkdownRemark.edges[0].node.frontmatter;
 
     return (
         <Container>
+            <ImageContainer>
+                <Image alt={title} fluid={headerImage.childImageSharp.fluid} />
+            </ImageContainer>
             <Content>
                 <MainTitle>{title}</MainTitle>
                 <SubTitle>{subtitle}</SubTitle>
@@ -43,15 +55,26 @@ const Header: FC = () => {
 };
 
 const Container = styled.header`
-    padding: 180px 0;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    background-image: url('https://images.unsplash.com/photo-1600181957705-92f267a2740e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80');
-    background-color: #292929;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
+    height: 100%;
+    position: relative;
+`;
+
+const Image = styled(Img)<{ fluid: FluidObject | FluidObject[] }>`
+    height: 100vh;
+
+    @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
+        height: 80vh;
+    }
+
+    @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
+        height: 90vh;
+    }
+`;
+
+const ImageContainer = styled.div`
+    width: 100vw;
+
     position: relative;
 
     :before {
@@ -64,11 +87,6 @@ const Container = styled.header`
         background-color: #292929;
         opacity: 0.3;
         z-index: 2;
-    }
-
-    @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
-        padding: 240px 0;
-        background-position: 50% 30%;
     }
 `;
 
@@ -87,6 +105,9 @@ const SubTitle = styled.h2`
 const Content = styled.section`
     padding: 0 15px;
     z-index: 3;
+    position: absolute;
+    top: 30%;
+    left: 10%;
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
         padding: 0 85px;
@@ -102,14 +123,8 @@ const Content = styled.section`
 `;
 
 const Tagline = styled(Body)`
-    width: 60%;
-
-    @media (min-width: ${({ theme }) => theme.mediaQueries.small}) {
+    @media (min-width: ${({ theme }) => theme.mediaQueries.xs}) {
         width: 50%;
-    }
-
-    @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
-        width: 30%;
     }
 `;
 

@@ -3,11 +3,7 @@ backend:
     repo: tlorent/gatsby-fitness-site
 
 media_folder: static/images
-media_library:
-    name: cloudinary
-    config:
-        cloud_name: ded0rxgui
-        api_key: 292163457656584
+public_folder: /images
 
 publish_mode: editorial_workflow
 locale: 'nl'
@@ -36,6 +32,7 @@ collections:
         - { label: Text, name: text, widget: text }
     - name: content
       label: Content
+      preview_path: "/"
       view_filters:
           - label: 'Content uit 2020'
             field: date
@@ -46,6 +43,7 @@ collections:
             file: 'content/header.md'
             fields:
                 - { name: title, label: title, widget: string, required: true }
+                - { name: headerImage, label: header image, widget: image, required: true }
                 - {
                       name: subtitle,
                       label: subtitle,
@@ -80,25 +78,25 @@ collections:
             file: 'content/training.md'
             fields:
                 - {
-                      name: title individual,
+                      name: titleIndividual,
                       label: title individual,
                       widget: string,
                       required: true,
                   }
                 - {
-                      name: individual explanation,
+                      name: individualExplanation,
                       label: individual explanation,
                       widget: string,
                       required: true,
                   }
                 - {
-                      name: individual image,
+                      name: individualImage,
                       label: individual image,
                       widget: image,
                       required: true,
                   }
                 - {
-                      name: individual benefits,
+                      name: individualBenefits,
                       label: individual benefits,
                       widget: list,
                       max: 3,
@@ -107,25 +105,25 @@ collections:
                       required: true,
                   }
                 - {
-                      name: title group,
+                      name: titleGroup,
                       label: title group,
                       widget: string,
                       required: true,
                   }
                 - {
-                      name: group explanation,
+                      name: groupExplanation,
                       label: group explanation,
                       widget: string,
                       required: true,
                   }
                 - {
-                      name: group image,
+                      name: groupImage,
                       label: group image,
                       widget: image,
                       required: true,
                   }
                 - {
-                      name: group benefits,
+                      name: groupBenefits,
                       label: group benefits,
                       widget: list,
                       max: 3,

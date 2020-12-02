@@ -57,7 +57,7 @@ const About: FC = () => {
 };
 
 const Container = styled.section`
-    padding: 80px 15px;
+    padding: 40px 15px;
     display: flex;
     height: 100%;
     flex-direction: column;
@@ -65,6 +65,7 @@ const Container = styled.section`
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
         flex-direction: row;
+        padding: 80px 15px;
     }
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {

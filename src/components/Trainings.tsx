@@ -5,23 +5,36 @@ import Button from './Button';
 import Body from './typography/Body';
 import { h1CSS } from './typography/Heading';
 import 'lazysizes';
+import Img, { FluidObject } from 'gatsby-image';
 
 const query = graphql`
     query Trainings {
-        allFile(filter: { name: { eq: "training" } }) {
+        allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/training.md/i" } }
+        ) {
             edges {
                 node {
-                    childMarkdownRemark {
-                        frontmatter {
-                            title_individual
-                            individual_explanation
-                            individual_benefits
-                            individual_image
-                            title_group
-                            group_explanation
-                            group_image
-                            group_benefits
+                    frontmatter {
+                        titleIndividual
+                        individualExplanation
+                        individualBenefits
+                        individualImage {
+                            childImageSharp {
+                                fluid {
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
                         }
+                        titleGroup
+                        groupExplanation
+                        groupImage {
+                            childImageSharp {
+                                fluid {
+                                    ...GatsbyImageSharpFluid
+                                }
+                            }
+                        }
+                        groupBenefits
                     }
                 }
             }
@@ -33,33 +46,30 @@ const Trainings: FC = () => {
     const data = useStaticQuery(query);
 
     const {
-        title_individual,
-        individual_explanation,
-        individual_benefits,
-        individual_image,
-        title_group,
-        group_explanation,
-        group_benefits,
-        group_image,
-    } = data.allFile.edges[0].node.childMarkdownRemark.frontmatter;
+        titleIndividual,
+        individualExplanation,
+        individualBenefits,
+        individualImage,
+        titleGroup,
+        groupExplanation,
+        groupBenefits,
+        groupImage,
+    } = data.allMarkdownRemark.edges[0].node.frontmatter;
 
     return (
         <Container>
             <TrainingBlock>
                 <Image
-                    alt={title_individual}
-                    height={500}
-                    width={700}
-                    className="lazyload"
-                    data-src={individual_image}
+                    alt={titleIndividual}
+                    fluid={individualImage.childImageSharp.fluid}
                 />
                 <Content>
-                    <Title>{title_individual}</Title>
+                    <Title>{titleIndividual}</Title>
                     <Explanation size="tiny">
-                        {individual_explanation}
+                        {individualExplanation}
                     </Explanation>
                     <Benefits>
-                        {individual_benefits.map(
+                        {individualBenefits.map(
                             (benefit: string, i: number) => (
                                 <li key={i}>{benefit}</li>
                             )
@@ -73,18 +83,15 @@ const Trainings: FC = () => {
             </TrainingBlock>
             <TrainingBlock style={{ backgroundColor: '#f8f8f8' }}>
                 <Image
-                    alt={title_group}
+                    alt={titleGroup}
                     style={{ order: 2 }}
-                    height={500}
-                    width={700}
-                    className="lazyload"
-                    data-src={group_image}
+                    fluid={groupImage.childImageSharp.fluid}
                 />
                 <Content>
-                    <Title>{title_group}</Title>
-                    <Explanation size="tiny">{group_explanation}</Explanation>
+                    <Title>{titleGroup}</Title>
+                    <Explanation size="tiny">{groupExplanation}</Explanation>
                     <Benefits>
-                        {group_benefits.map((benefit: string, i: number) => (
+                        {groupBenefits.map((benefit: string, i: number) => (
                             <li key={i}>{benefit}</li>
                         ))}
                     </Benefits>
@@ -117,11 +124,11 @@ const Content = styled.div`
     @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
         padding: 48px 5%;
         padding-top: 0;
+        width: 50%;
     }
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
         padding: 48px 5%;
-        width: 50%;
     }
 `;
 
@@ -145,15 +152,15 @@ const TrainingBlock = styled.div`
     }
 `;
 
-const Image = styled.img`
+const Image = styled(Img)<{ fluid: FluidObject | FluidObject[] }>`
     width: 100%;
-    height: auto;
     margin-bottom: 48px;
-    object-fit: cover;
+    max-height: 250px;
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
         width: 50%;
         margin-bottom: 0;
+        max-height: none;
     }
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.xl}) {

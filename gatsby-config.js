@@ -15,13 +15,13 @@ module.exports = {
     plugins: [
         'gatsby-plugin-styled-components',
         'gatsby-plugin-eslint',
-        'gatsby-transformer-remark',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sitemap',
         {
-            resolve: 'gatsby-plugin-netlify-cms',
+            resolve: 'gatsby-source-filesystem',
             options: {
-                modulePath: `${__dirname}/src/cms/cms.ts`,
+                name: 'images',
+                path: `${__dirname}/static/images`,
             },
         },
         {
@@ -29,6 +29,35 @@ module.exports = {
             options: {
                 name: `content`,
                 path: `${__dirname}/content`,
+            },
+        },
+        'gatsby-transformer-sharp',
+        'gatsby-plugin-sharp',
+        {
+            resolve: 'gatsby-transformer-remark',
+            options: {
+                plugins: [
+                    {
+                        resolve: 'gatsby-remark-relative-images',
+                        options: {
+                            include: [
+                                'individualImage',
+                                'groupImage',
+                                'headerImage',
+                                'clientImage',
+                            ],
+                        },
+                    },
+                    {
+                        resolve: 'gatsby-remark-images',
+                    },
+                ],
+            },
+        },
+        {
+            resolve: 'gatsby-plugin-netlify-cms',
+            options: {
+                modulePath: `${__dirname}/src/cms/cms.ts`,
             },
         },
         {
