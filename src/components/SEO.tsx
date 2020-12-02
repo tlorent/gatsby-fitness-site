@@ -66,11 +66,11 @@ const SEO: FC<Props> = ({
             />
             <link rel="canonical" href={canonical} />
             {/* <link rel="preconnect" href="https://fonts.gstatic.com" /> */}
-            {/* <link
+            <link
                 href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&family=Roboto+Condensed:wght@300;700&display=swap"
                 rel="preload"
                 as="style"
-            /> */}
+            />
             <link
                 href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&family=Roboto+Condensed:wght@300;700&display=swap"
                 rel="stylesheet"
@@ -111,6 +111,10 @@ const SEO: FC<Props> = ({
             <meta property="og:url" content={url} />
 
             {/* Scripts */}
+            <script
+                src="https://kit.fontawesome.com/2f096f0c47.js"
+                crossOrigin="anonymous"
+            />
 
             {children}
         </Helmet>

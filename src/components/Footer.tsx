@@ -2,14 +2,13 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import Body from './typography/Body';
 import { h1CSS } from './typography/Heading';
-import { FaBolt } from 'react-icons/fa';
 
 const Footer: FC = () => (
     <Section>
         <Container>
             <Title>LET&apos;S SMASH YOUR GOALS TOGETHER</Title>
             <IconContainer>
-                <BoltIcon />
+                <BoltIcon className="fas fa-bolt" />
             </IconContainer>
             <Contact>
                 <Text>
@@ -81,12 +80,12 @@ const IconContainer = styled.div`
     }
 `;
 
-const BoltIcon = styled(FaBolt)`
-    display: none !important;
+const BoltIcon = styled.i`
+    display: none;
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.large}) {
         font-size: 120px;
-        display: inline-block !important;
+        display: inline-block;
         color: ${({ theme }) => theme.colors.white};
     }
 `;
