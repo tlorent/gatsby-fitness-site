@@ -13,10 +13,12 @@ module.exports = {
         keywords: ['personal training', 'fitness', 'diet', 'ben dobson'],
     },
     plugins: [
+        'gatsby-plugin-preact',
         'gatsby-plugin-styled-components',
         'gatsby-plugin-eslint',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sitemap',
+        'gatsby-plugin-preload-fonts',
         {
             resolve: 'gatsby-source-filesystem',
             options: {

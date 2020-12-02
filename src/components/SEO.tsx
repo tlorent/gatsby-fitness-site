@@ -65,7 +65,12 @@ const SEO: FC<Props> = ({
                 content="width=device-width,initial-scale=1.0"
             />
             <link rel="canonical" href={canonical} />
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            {/* <link rel="preconnect" href="https://fonts.gstatic.com" /> */}
+            {/* <link
+                href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&family=Roboto+Condensed:wght@300;700&display=swap"
+                rel="preload"
+                as="style"
+            /> */}
             <link
                 href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&family=Roboto+Condensed:wght@300;700&display=swap"
                 rel="stylesheet"
