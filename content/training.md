@@ -4,7 +4,7 @@ individualExplanation: Perfect for those who need a little extra motivation.
   monitor together.
 title individual: Individual Training
 titleIndividual: Individual Training
-individualImage: /src/assets/images/single-training.jpg
+individualImage: /images/single-training.jpg
 individual benefits:
   - Flexible booking times
   - Personal Dietary Advice
@@ -26,7 +26,7 @@ group image: https://res.cloudinary.com/ded0rxgui/image/upload/c_scale,w_1280/v1
 groupExplanation: Training in a positively charged environment, we work together
   to achieve our own goals. Groups are made up of 10 - 15 people and cater to
   all ability levels.
-groupImage: /src/assets/images/group-training.jpg
+groupImage: /images/group-training.jpg
 groupBenefits:
   - Come To Any Sessions
   - Multi-Sessions Discounts
