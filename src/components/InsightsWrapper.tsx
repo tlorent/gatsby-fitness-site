@@ -8,24 +8,22 @@ interface Props {
     data: InsightsQuery;
 }
 
-const InsightsWrapper: FC<Props> = ({ data }) => {
-    return (
-        <Section>
-            <Container>
-                <SectionTitle>Insights</SectionTitle>
-                <InsightCards>
-                    {data.allMarkdownRemark.edges.map((edge, index) => (
-                        <InsightCard
-                            key={index}
-                            url={edge.node.fields?.slug}
-                            insight={edge?.node?.frontmatter}
-                        />
-                    ))}
-                </InsightCards>
-            </Container>
-        </Section>
-    );
-};
+const InsightsWrapper: FC<Props> = ({ data }) => (
+    <Section>
+        <Container>
+            <SectionTitle>Insights</SectionTitle>
+            <InsightCards>
+                {data.allMarkdownRemark.edges.map((edge, index) => (
+                    <InsightCard
+                        key={index}
+                        url={edge.node.fields?.slug}
+                        insight={edge?.node?.frontmatter}
+                    />
+                ))}
+            </InsightCards>
+        </Container>
+    </Section>
+);
 
 const Section = styled.section`
     padding: 80px 0px;

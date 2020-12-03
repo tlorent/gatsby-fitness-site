@@ -10,7 +10,7 @@ const query = graphql`
         allMarkdownRemark(
             filter: { fileAbsolutePath: { regex: "/blog/" } }
             limit: 3
-            sort: { fields: frontmatter___date, order: DESC }
+            sort: { fields: [frontmatter___date], order: DESC }
         ) {
             edges {
                 node {

@@ -9,19 +9,19 @@ import { h1CSS, h4CSS } from './typography/Heading';
 
 const query = graphql`
     query Schedule {
-        allFile(filter: { name: { eq: "schedule" } }) {
+        allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/schedule.md/i" } }
+        ) {
             edges {
                 node {
-                    childMarkdownRemark {
-                        frontmatter {
-                            days {
-                                day
-                                classes {
-                                    startTime
-                                    endTime
-                                    classTitle
-                                    location
-                                }
+                    frontmatter {
+                        days {
+                            day
+                            classes {
+                                startTime
+                                endTime
+                                classTitle
+                                location
                             }
                         }
                     }
@@ -77,7 +77,7 @@ const renderSchedule = (days: Day[], currentDay: string) => {
 const Schedule: FC = () => {
     const [activeDay, setActiveDay] = useState('monday');
     const data = useStaticQuery(query);
-    const { days } = data.allFile.edges[0].node.childMarkdownRemark.frontmatter;
+    const { days } = data.allMarkdownRemark.edges[0].node.frontmatter;
 
     return (
         <Section>

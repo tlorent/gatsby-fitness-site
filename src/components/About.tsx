@@ -7,17 +7,15 @@ import { h1CSS, h5CSS } from './typography/Heading';
 
 const query = graphql`
     query About {
-        allFile(filter: { name: { eq: "about" } }) {
+        allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/about.md/i" } }
+        ) {
             edges {
                 node {
-                    childMarkdownRemark {
-                        frontmatter {
-                            title
-                            quote
-                            about_text_paragraph_one
-                            about_text_paragraph_two
-                            about_text_paragraph_three
-                        }
+                    html
+                    frontmatter {
+                        title
+                        quote
                     }
                 }
             }
@@ -29,12 +27,9 @@ const About: FC = () => {
     const data = useStaticQuery(query);
 
     const {
-        title,
-        quote,
-        about_text_paragraph_one,
-        about_text_paragraph_two,
-        about_text_paragraph_three,
-    } = data.allFile.edges[0].node.childMarkdownRemark.frontmatter;
+        html,
+        frontmatter: { title, quote },
+    } = data.allMarkdownRemark.edges[0].node;
 
     return (
         <Container>
@@ -44,13 +39,7 @@ const About: FC = () => {
             </TitleContainer>
             <Separator />
             <TextContainer>
-                <Text size="tiny">{about_text_paragraph_one}</Text>
-                {about_text_paragraph_two && (
-                    <Text size="tiny">{about_text_paragraph_two}</Text>
-                )}
-                {about_text_paragraph_three && (
-                    <Text size="tiny">{about_text_paragraph_three}</Text>
-                )}
+                <Text size="tiny" dangerouslySetInnerHTML={{ __html: html }} />
             </TextContainer>
         </Container>
     );
@@ -134,6 +123,10 @@ const Text = styled(Body)`
     color: ${({ theme }) => theme.colors.white2};
     font-weight: 300;
     margin-bottom: 24px;
+
+    p {
+        margin-bottom: 12px;
+    }
 `;
 
 export default About;

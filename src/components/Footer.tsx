@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import React, { FC } from 'react';
 import styled from 'styled-components';
 import Body from './typography/Body';
@@ -8,7 +9,9 @@ const Footer: FC = () => (
         <Container>
             <Title>LET&apos;S SMASH YOUR GOALS TOGETHER</Title>
             <IconContainer>
-                <BoltIcon className="fas fa-bolt" />
+                <Link to="/">
+                    <BoltIcon className="fas fa-bolt" />
+                </Link>
             </IconContainer>
             <Contact>
                 <Text>
@@ -87,6 +90,11 @@ const BoltIcon = styled.i`
         font-size: 120px;
         display: inline-block;
         color: ${({ theme }) => theme.colors.white};
+        transition: transform 0.2s ease;
+
+        :hover {
+            transform: rotate(8deg) scale(1.3);
+        }
     }
 `;
 

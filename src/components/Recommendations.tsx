@@ -5,18 +5,17 @@ import Slider from './Slider';
 
 const query = graphql`
     query Recommendations {
-        allFile(filter: { name: { eq: "recommendations" } }) {
+        allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/recommendations.md/i" } }
+        ) {
             edges {
                 node {
-                    name
-                    childMarkdownRemark {
-                        frontmatter {
-                            recommendations {
-                                quote
-                                clientName
-                                clientYearsActive
-                                clientImage
-                            }
+                    frontmatter {
+                        recommendations {
+                            quote
+                            clientName
+                            clientYearsActive
+                            clientImage
                         }
                     }
                 }
@@ -29,7 +28,7 @@ const Recommendations: FC = () => {
     const data = useStaticQuery(query);
     const {
         recommendations,
-    } = data.allFile.edges[0].node.childMarkdownRemark.frontmatter;
+    } = data.allMarkdownRemark.edges[0].node.frontmatter;
 
     return (
         <Section>

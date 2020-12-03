@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import Button from './Button';
 import Body from './typography/Body';
 import { h1CSS } from './typography/Heading';
-import 'lazysizes';
 import Img, { FluidObject } from 'gatsby-image';
 
 const query = graphql`

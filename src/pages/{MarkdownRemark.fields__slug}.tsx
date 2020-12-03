@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import React, { FC } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Footer from '../components/Footer';
+import Menu from '../components/Menu';
 import SEO from '../components/SEO';
 import Separator from '../components/Separator';
 import Body from '../components/typography/Body';
@@ -48,6 +49,7 @@ const BlogPost: FC<Props> = ({ data, location }) => {
             />
             <GlobalStyle />
             <ThemeProvider theme={theme}>
+                <Menu />
                 <Section>
                     <Container>
                         <BlogTitle>{title}</BlogTitle>

@@ -58,20 +58,10 @@ collections:
                 - { name: title, label: title, widget: string, required: true }
                 - { name: quote, label: quote, widget: string, required: true }
                 - {
-                      name: about text paragraph one,
-                      label: about text paragraph one,
-                      widget: text,
+                      name: body,
+                      label: about text,
+                      widget: markdown,
                       required: true,
-                  }
-                - {
-                      name: about text paragraph two,
-                      label: about text paragraph two,
-                      widget: text,
-                  }
-                - {
-                      name: about text paragraph three,
-                      label: about text paragraph three,
-                      widget: text,
                   }
           - label: 'Trainings Section'
             name: 'training'

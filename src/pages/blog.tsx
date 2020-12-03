@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Footer from '../components/Footer';
 import InsightsWrapper from '../components/InsightsWrapper';
+import Menu from '../components/Menu';
 import SEO from '../components/SEO';
 import theme from '../constants/theme';
 import { InsightsQuery } from '../generated/graphql';
@@ -19,6 +20,7 @@ const Blog: FC<Props> = ({ data, location }) => (
         <GlobalStyle />
         <ThemeProvider theme={theme}>
             <Wrapper>
+                <Menu />
                 <InsightsWrapper data={data} />
                 <Footer />
             </Wrapper>
@@ -35,7 +37,7 @@ export const query = graphql`
     query {
         allMarkdownRemark(
             filter: { fileAbsolutePath: { regex: "/blog/" } }
-            sort: { fields: frontmatter___date, order: DESC }
+            sort: { fields: [frontmatter___date], order: DESC }
         ) {
             edges {
                 node {

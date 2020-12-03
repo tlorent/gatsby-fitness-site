@@ -11,6 +11,7 @@ import theme from '../constants/theme';
 import GlobalStyle from '../globalStyling';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
+import Menu from '../components/Menu';
 
 const Home: FC<{ location: Location }> = ({ location }) => (
     <>
@@ -18,6 +19,7 @@ const Home: FC<{ location: Location }> = ({ location }) => (
         <GlobalStyle />
         <ThemeProvider theme={theme}>
             <Wrapper>
+                <Menu />
                 <Header />
                 <About />
                 <Trainings />

@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import React, { FC } from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Footer from '../components/Footer';
+import Menu from '../components/Menu';
 import SEO from '../components/SEO';
 import Body from '../components/typography/Body';
 import { h1CSS } from '../components/typography/Heading';
@@ -14,6 +15,7 @@ const FourOhFour: FC<{ location: Location }> = ({ location }) => (
         <GlobalStyle />
         <ThemeProvider theme={theme}>
             <Wrapper>
+                <Menu />
                 <PageTitle>This page does not exist.</PageTitle>
                 <Body style={{ color: '#000' }}>
                     Please go back to the <Link to="/">homepage.</Link>
