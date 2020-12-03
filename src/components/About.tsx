@@ -38,12 +38,7 @@ const About: FC = () => {
                 <Quote>&quot;{quote}&quot;</Quote>
             </TitleContainer>
             <Separator />
-            <TextContainer>
-                <Text
-                    size="tiny"
-                    dangerouslySetInnerHTML={{ __html: `<div>${html}</div>` }}
-                />
-            </TextContainer>
+            <TextContainer dangerouslySetInnerHTML={{ __html: html }} />
         </Container>
     );
 };
@@ -109,6 +104,16 @@ const Quote = styled.h3`
 const TextContainer = styled.div`
     flex: 0 0 58.33%;
 
+    line-height: 24px;
+    font-family: 'Open Sans', sans-serif;
+    color: ${({ theme }) => theme.colors.white};
+    font-weight: 300;
+    font-size: clamp(12px, 2vw, 13px);
+
+    p {
+        margin-bottom: 12px;
+    }
+
     @media (min-width: ${({ theme }) => theme.mediaQueries.medium}) {
         padding: 0 15px;
     }
@@ -119,15 +124,6 @@ const TextContainer = styled.div`
 
     @media (min-width: ${({ theme }) => theme.mediaQueries.huge}) {
         flex: 0 0 21.66%;
-    }
-`;
-
-const Text = styled(Body)`
-    color: ${({ theme }) => theme.colors.white2};
-    font-weight: 300;
-
-    p {
-        margin-bottom: 12px;
     }
 `;
 
