@@ -39,7 +39,10 @@ const About: FC = () => {
             </TitleContainer>
             <Separator />
             <TextContainer>
-                <Text size="tiny" dangerouslySetInnerHTML={{ __html: html }} />
+                <Text
+                    size="tiny"
+                    dangerouslySetInnerHTML={{ __html: `<div>${html}</div>` }}
+                />
             </TextContainer>
         </Container>
     );
@@ -122,7 +125,6 @@ const TextContainer = styled.div`
 const Text = styled(Body)`
     color: ${({ theme }) => theme.colors.white2};
     font-weight: 300;
-    margin-bottom: 24px;
 
     p {
         margin-bottom: 12px;
