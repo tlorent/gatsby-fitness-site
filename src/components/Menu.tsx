@@ -1,13 +1,16 @@
 import { Link } from 'gatsby';
-import React, { FC } from 'react';
+import React, { FC, useRef } from 'react';
+import { useHideAndSeekMenu } from 'react-hideandseekmenu';
 import styled from 'styled-components';
-import { useOnScroll } from '../hooks/useOnScroll';
 
 const Menu: FC = () => {
-    const isVisible = useOnScroll();
+    const navRef = useRef<HTMLElement>(null);
+    useHideAndSeekMenu({
+        ref: navRef,
+    });
 
     return (
-        <Nav isVisible={isVisible}>
+        <Nav ref={navRef}>
             <Link to="/">
                 <Icon className="fas fa-bolt" />
             </Link>
@@ -23,16 +26,12 @@ const Menu: FC = () => {
     );
 };
 
-const Nav = styled.nav<{ isVisible: boolean }>`
+const Nav = styled.nav`
     height: 70px;
     background-color: ${({ theme }) => theme.colors.white};
-    position: sticky;
-    top: ${({ isVisible }) => (isVisible ? '0' : '-100px')};
     z-index: 3;
     box-shadow: 0 5px 15px 0px rgba(0, 0, 0, 0.1);
     padding: 0 20px;
-
-    transition: top 0.3s ease;
 
     display: flex;
     justify-content: space-between;

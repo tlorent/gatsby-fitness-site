@@ -49,6 +49,7 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
+    "react-hideandseekmenu": "^2.1.1",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7"
   },
